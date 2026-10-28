@@ -650,7 +650,7 @@ Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 bi
 
 ### Optional GPU serving via Badgr (third-party)
 
-For users who already have a working model-serving setup, [Badgr](https://aibadgr.com) can manage a serving process on a connected GPU machine. This is an optional community workflow, not an official model deployment method.
+**Bring your own GPU (BYO GPU) or use a cloud GPU.** [Badgr](https://aibadgr.com) lets you connect a GPU machine you already own and manage model serving on it, or use supported rented GPU capacity. This is an optional third-party workflow, not an official model deployment method.
 
 ```bash
 badgr node connect --name gpu-box-1
