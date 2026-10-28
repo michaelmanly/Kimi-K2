@@ -648,18 +648,19 @@ Kimi K2 is a state-of-the-art mixture-of-experts (MoE) language model with 32 bi
 </sup>
 
 
-### Optional GPU serving via Badgr (third-party)
+## 4. Deployment
 
-**Bring your own GPU (BYO GPU) or use a cloud GPU.** [Badgr](https://aibadgr.com) lets you connect a GPU machine you already own and manage model serving on it, or use supported rented GPU capacity. This is an optional third-party workflow, not an official model deployment method.
+### Optional: serve with Badgr on your own GPU
+
+If you already have a working serving script for `moonshotai/Kimi-K2-Instruct`, [Badgr](https://aibadgr.com) can manage the service on **your own connected GPU (BYO GPU)**. Supported rented cloud GPUs are another option; this is a third-party workflow, not an official deployment method.
 
 ```bash
 badgr node connect --name gpu-box-1
 badgr serve ./start-vllm.sh --target gpu-box-1
 ```
 
-Here `start-vllm.sh` is **your own tested launch script** for `moonshotai/Kimi-K2-Instruct`, with the model-specific vLLM flags from this project's serving guidance. Badgr also offers cloud GPU capacity; select a supported cloud target according to its CLI documentation. Kimi K2 is a very large MoE model. Use a capable multi-GPU host and the engine configuration from the deployment guide; the generic command below does not configure tensor/expert parallelism for you. These commands have not been end-to-end tested as part of this documentation change.
+`start-vllm.sh` is your own model-specific, tested launch script—not a script bundled with this repository. Kimi K2 needs substantial multi-GPU memory and model-specific parallelism settings. This example has not been end-to-end tested for this model.
 
-## 4. Deployment
 > [!Note]
 > You can access Kimi K2's API on https://platform.moonshot.ai , we provide an OpenAI/Anthropic-compatible API for you.
 >
